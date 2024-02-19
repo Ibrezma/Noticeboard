@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is a digital noticeboard for Zetech University backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "Ibrahim Mohamed Warsame",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
