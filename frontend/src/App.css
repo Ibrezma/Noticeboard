@@ -1,0 +1,11 @@
+footer {
+  /* Adjust height if needed */
+  height: auto;
+  border: top -2px;
+  
+}
+
+.grid {
+  /* Center the content horizontally */
+  justify-items: center;
+}

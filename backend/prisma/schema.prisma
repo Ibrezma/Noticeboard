@@ -21,6 +21,6 @@ model user {
     id Int @id @default(autoincrement())
     title String
     description String
-    starting_date DateTime
-    ending_date DateTime
+    starting_date String
+    ending_date String
   }
