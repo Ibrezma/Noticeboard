@@ -4,6 +4,7 @@ const PDF = {
     bookfair:  new URL("./ZetechUniversityAnnualBookFair.pdf", import.meta.url).href,
     sportsday:  new URL("./ZetechUniversityAnnualSportsDay.pdf", import.meta.url).href,
     
+    
 }
 
 export default PDF
