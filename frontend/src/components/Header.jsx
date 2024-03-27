@@ -12,13 +12,13 @@ const logout = () => {
 
 return (
 
-    <nav className="navbar bg-body-tertiary "> 
+    <nav className="navbar bg-body-tertiary shadow p-3 mb-5 bg-white rounded"> 
       <div className="container-fluid">
         <a className="navbar-brand">NoticeBoard</a>
         <div className="d-flex">
          {
-          !token &&  <div><a href="/Login" className="me-2">Login</a>
-                    <a href="/registration">Register</a> </div>
+          !token &&  <div><a href="/Login" className="btn btn-light me-2">Login</a>
+                    <a href="/registration" className="btn btn-light">Register</a> </div>
          }
         {
           token && <button type="button" className="btn btn-info" onClick={logout}> Log Out</button> 

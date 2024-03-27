@@ -20,16 +20,21 @@ router.post('/', async(req, res) => {
       email
     }
     })
+    if (!user) {
+      return res.json({masg: "Incorrect Email"})
+    }
+    console.log(user)
     const correctpassword = bcryptjs.compareSync(password, user.password)
+    console.log(correctpassword)
     if(!correctpassword){
-      return res.json({msg: "incorrect password!"})
+      return res.json({masg: "incorrect password!"})
     }
     
-    if(user){
-      const token = jwt.sign(user, 'kkkkk')
-      console.log({token})
-      res.json({token})
-    }
+    
+
+    const token = jwt.sign(user, 'kkkkk')
+    console.log({token})
+    res.json({token})
   })
 
 
