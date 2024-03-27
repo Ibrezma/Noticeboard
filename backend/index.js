@@ -5,6 +5,10 @@ const login = require("./src/routes/login")
 const events = require("./src/routes/events")
 const users = require("./src/routes/users")
 const cors = require('cors')
+const dotenv = require('dotenv')
+
+dotenv.config()
+console.log(process.env.DATABASE_URL)
 
 
 const port = 3000

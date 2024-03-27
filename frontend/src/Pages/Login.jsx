@@ -1,15 +1,16 @@
 import { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
 
 function Login(){
   const t = localStorage.getItem("token")
-  
-    const [inputs, setInputs] = useState({
-      
-      email: "",
-      password: ""
-    })
-    console.log(inputs)
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: ""
+  })
+
+  console.log(inputs)
+
   const onchange = (e) => {
     setInputs({...inputs, [e.target.name]: e.target.value});
   }
@@ -34,8 +35,16 @@ function Login(){
     
     const token = await nn.json()
     console.log(token)
-    localStorage.setItem("token", token.token)
-    redirect("/")
+    if(token.masg){
+      toast.error(token.masg)
+    }else{
+      toast.success("Login successful")
+      localStorage.setItem("token", token.token)
+      setInputs({
+        email: "",
+        password: ""
+      })
+    }
      } catch (error) {
       console.error(error)
      }
@@ -43,19 +52,13 @@ function Login(){
      
   
     }
-  
-
-
-
 
     if (t) {
       return <Navigate to={"/"} />
     }else{
-
-   
-
     return (
       <section className="vh-100 bg-image" style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
+      <Toaster />
       <div className="mask d-flex align-items-center h-100 gradient-custom-3">
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">

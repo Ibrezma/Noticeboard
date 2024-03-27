@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { redirect, Navigate } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
 
 function Registration(props) {
   const t = localStorage.getItem("token")
@@ -39,7 +40,18 @@ const SubmitEvent = async(e) => {
 
   const token = await nn.json()
   console.log(token)
-  localStorage.setItem("token", token.token)
+  if(token.masg){
+   toast.error(token.masg)
+  }else{
+    toast.success("Registration successful")
+    localStorage.setItem("token", token.token)
+    setInputs({
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: ""
+    })
+  }
   }
   
   
@@ -49,6 +61,7 @@ const SubmitEvent = async(e) => {
   } else {
   return (
       <section className="vh-100 bg-image" style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
+        <Toaster />
         <div className="mask d-flex align-items-center h-100 gradient-custom-3">
           <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
